@@ -90,6 +90,12 @@
             content: '▼';
             transform: rotate(0deg);
         }
+        #tables .overflow-x-auto {
+            -webkit-overflow-scrolling: touch; /* iOS: 慣性スクロールを有効にする */
+            touch-action: pan-x;               /* 横スクロールを優先させる（Android/モダンブラウザ対応） */
+            -ms-overflow-style: -ms-autohiding-scrollbar; /* IE/Edge のスクロールバー挙動 */
+            scrollbar-width: thin;             /* Firefox のスクロールバー幅指定 */
+        }
     </style>
 </head>
 
@@ -527,7 +533,8 @@
 
             function makeTableFor(date, data) {
                 const container = document.createElement('div');
-                container.className = 'bg-black/60 p-4 rounded-lg';
+                // モバイルで横スクロールできるように overflow-x を有効化
+                container.className = 'bg-black/60 p-4 rounded-lg overflow-x-auto';
 
                 const title = document.createElement('h4');
                 title.className = 'text-center font-bold mb-4';
@@ -535,7 +542,8 @@
                 container.appendChild(title);
 
                 const table = document.createElement('table');
-                table.className = 'w-full table-fixed border-collapse text-sm';
+                // 最低幅を確保して狭い画面で横スクロールさせる
+                table.className = 'min-w-[720px] table-fixed border-collapse text-sm';
                 // header
                 const thead = document.createElement('thead');
                 const htr = document.createElement('tr');
@@ -578,7 +586,7 @@
 
             function makeWeddingTable(date, data) {
                 const container = document.createElement('div');
-                container.className = 'bg-black/60 p-4 rounded-lg';
+                container.className = 'bg-black/60 p-4 rounded-lg overflow-x-auto';
 
                 const title = document.createElement('h4');
                 title.className = 'text-center font-bold mb-4';
@@ -586,7 +594,7 @@
                 container.appendChild(title);
 
                 const table = document.createElement('table');
-                table.className = 'w-full table-auto border-collapse text-sm';
+                table.className = 'min-w-[420px] table-auto border-collapse text-sm';
                 const thead = document.createElement('thead');
                 const htr = document.createElement('tr');
                 htr.innerHTML = `<th class="border-2 border-white px-3 py-2 bg-black">時間</th><th class="border-2 border-white px-3 py-2 bg-black">残り席数</th>`;
