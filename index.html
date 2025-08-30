@@ -533,8 +533,8 @@
 
             function makeTableFor(date, data) {
                 const container = document.createElement('div');
-                // モバイルで横スクロールできるように overflow-x を有効化
-                container.className = 'bg-black/60 p-4 rounded-lg overflow-x-auto';
+                // 横の余白を詰めつつモバイルで横スクロールを許可
+                container.className = 'bg-black/60 px-2 md:px-4 py-4 rounded-lg overflow-x-auto';
 
                 const title = document.createElement('h4');
                 title.className = 'text-center font-bold mb-4';
@@ -542,8 +542,8 @@
                 container.appendChild(title);
 
                 const table = document.createElement('table');
-                // 最低幅を確保して狭い画面で横スクロールさせる
-                table.className = 'min-w-[720px] table-fixed border-collapse text-sm';
+                // コンテナ幅に詰める（ただし小画面では横スクロールを維持する）
+                table.className = 'w-full table-fixed border-collapse text-sm min-w-[720px]';
                 // header
                 const thead = document.createElement('thead');
                 const htr = document.createElement('tr');
@@ -586,7 +586,7 @@
 
             function makeWeddingTable(date, data) {
                 const container = document.createElement('div');
-                container.className = 'bg-black/60 p-4 rounded-lg overflow-x-auto';
+                container.className = 'bg-black/60 px-2 md:px-4 py-4 rounded-lg overflow-x-auto';
 
                 const title = document.createElement('h4');
                 title.className = 'text-center font-bold mb-4';
@@ -594,10 +594,11 @@
                 container.appendChild(title);
 
                 const table = document.createElement('table');
-                table.className = 'min-w-[420px] table-auto border-collapse text-sm';
+                // 時間カラムを詰める（固定幅） / 全体の最小幅も若干縮小
+                table.className = 'w-full table-auto border-collapse text-sm min-w-[360px]';
                 const thead = document.createElement('thead');
                 const htr = document.createElement('tr');
-                htr.innerHTML = `<th class="border-2 border-white px-3 py-2 bg-black">時間</th><th class="border-2 border-white px-3 py-2 bg-black">残り席数</th>`;
+                htr.innerHTML = `<th class="w-28 border-2 border-white px-2 py-2 bg-black">時間</th><th class="border-2 border-white px-2 py-2 bg-black">残り席数</th>`;
                 thead.appendChild(htr);
                 table.appendChild(thead);
 
@@ -605,12 +606,13 @@
                 weddingTimes.forEach(t => {
                     const tr = document.createElement('tr');
                     const timeTd = document.createElement('td');
-                    timeTd.className = 'border-2 border-white px-3 py-2 bg-black font-bold';
+                    // 時間セルも幅を固定して余白を詰める
+                    timeTd.className = 'w-28 border-2 border-white px-2 py-2 bg-black font-bold';
                     timeTd.textContent = t.label;
                     tr.appendChild(timeTd);
 
                     const valTd = document.createElement('td');
-                    valTd.className = 'border-2 border-white px-3 py-2 text-center';
+                    valTd.className = 'border-2 border-white px-2 py-2 text-center';
                     const key = `${date} ${t.key}`;
                     let val = '-';
                     if (data && data.weddingTickets && data.weddingTickets[key] !== undefined) {
