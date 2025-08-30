@@ -249,6 +249,20 @@
             </section>
             <!-- ▲ ABOUTセクション ▲ -->
 
+        <section id="ticket-availability" class="mt-12 fade-in-on-scroll">
+            <div class="max-w-5xl mx-auto px-6">
+                <h3 class="text-2xl font-bold text-center mb-6 text-yellow-400">チケット空き状況（ストプレ）</h3>
+
+                <div id="tables" class="space-y-12">
+                    <!-- テーブルはJSで生成されます -->
+                </div>
+
+                <p id="last-updated" class="text-sm text-gray-400 mt-4 text-center"></p>
+            </div>
+        </section>
+
+
+
             <!-- ▼ 注意事項セクション（新規追加）▼ -->
             <section id="notes" class="flex flex-col items-center fade-in-on-scroll">
                 <div class="mt-12 w-full max-w-2xl bg-gray-800 p-6 md:p-8 rounded-lg">
@@ -430,6 +444,165 @@
             });
         });
     </script>
+    <script>
+    (function(){
+        const rawUrl = 'https://gist.githubusercontent.com/massy-o/25cb71f6d965c93c4579fb01cf10bf7d/raw';
+        const venues = ['会場A','会場B','会場C','会場D','会場E'];
+        const times = [
+            {key: '10:00', label: '10:00〜11:30'},
+            {key: '11:40', label: '11:40〜13:10'},
+            {key: '13:30', label: '13:30〜15:00'},
+            {key: '15:10', label: '15:10〜16:40'},
+            {key: '16:50', label: '16:50〜18:10'}
+        ];
+        const dates = ['10/18','10/19'];
 
+        const weddingTimes = [
+            {key: '14:40', label: '14:40〜15:20'},
+            {key: '15:40', label: '15:40〜16:20'},
+            {key: '16:40', label: '16:40〜17:20'},
+            {key: '17:40', label: '17:40〜18:20'},
+            {key: '18:40', label: '18:40〜19:20'}
+        ];
+
+        function makeTableFor(date, data) {
+            const container = document.createElement('div');
+            container.className = 'bg-black/60 p-4 rounded-lg';
+
+            const title = document.createElement('h4');
+            title.className = 'text-center font-bold mb-4';
+            title.textContent = date;
+            container.appendChild(title);
+
+            const table = document.createElement('table');
+            table.className = 'w-full table-fixed border-collapse text-sm';
+            // header
+            const thead = document.createElement('thead');
+            const htr = document.createElement('tr');
+            htr.innerHTML = `<th class="border-2 border-white px-2 py-2 bg-black"></th>` +
+                venues.map(v => `<th class="border-2 border-white px-2 py-2 bg-black">${v}</th>`).join('');
+            thead.appendChild(htr);
+            table.appendChild(thead);
+
+            const tbody = document.createElement('tbody');
+            times.forEach(t => {
+                const tr = document.createElement('tr');
+                const timeTd = document.createElement('td');
+                timeTd.className = 'border-2 border-white px-2 py-2 bg-black font-bold';
+                timeTd.textContent = t.label;
+                tr.appendChild(timeTd);
+
+                venues.forEach(v => {
+                    const td = document.createElement('td');
+                    td.className = 'border-2 border-white px-2 py-2 text-center';
+                    const key = `${date} ${t.key}`;
+                    let val = 0;
+                    if (data && data.storyTickets && data.storyTickets[v] && data.storyTickets[v][key] !== undefined) {
+                        val = data.storyTickets[v][key];
+                    }
+                    td.textContent = val;
+                    if (val === 0) {
+                        td.classList.add('bg-gray-700','text-gray-300');
+                    } else {
+                        td.classList.add('bg-white','text-gray-900','font-bold');
+                    }
+                    tr.appendChild(td);
+                });
+                tbody.appendChild(tr);
+            });
+
+            table.appendChild(tbody);
+            container.appendChild(table);
+            return container;
+        }
+
+        function makeWeddingTable(date, data) {
+            const container = document.createElement('div');
+            container.className = 'bg-black/60 p-4 rounded-lg';
+
+            const title = document.createElement('h4');
+            title.className = 'text-center font-bold mb-4';
+            title.textContent = date;
+            container.appendChild(title);
+
+            const table = document.createElement('table');
+            table.className = 'w-full table-auto border-collapse text-sm';
+            const thead = document.createElement('thead');
+            const htr = document.createElement('tr');
+            htr.innerHTML = `<th class="border-2 border-white px-3 py-2 bg-black">時間</th><th class="border-2 border-white px-3 py-2 bg-black">残り席数</th>`;
+            thead.appendChild(htr);
+            table.appendChild(thead);
+
+            const tbody = document.createElement('tbody');
+            weddingTimes.forEach(t => {
+                const tr = document.createElement('tr');
+                const timeTd = document.createElement('td');
+                timeTd.className = 'border-2 border-white px-3 py-2 bg-black font-bold';
+                timeTd.textContent = t.label;
+                tr.appendChild(timeTd);
+
+                const valTd = document.createElement('td');
+                valTd.className = 'border-2 border-white px-3 py-2 text-center';
+                const key = `${date} ${t.key}`;
+                let val = '-';
+                if (data && data.weddingTickets && data.weddingTickets[key] !== undefined) {
+                    val = data.weddingTickets[key];
+                }
+                valTd.textContent = val;
+                if (val === 0 || val === '-') {
+                    valTd.classList.add('bg-gray-700','text-gray-300');
+                } else {
+                    valTd.classList.add('bg-white','text-gray-900','font-bold');
+                }
+                tr.appendChild(valTd);
+                tbody.appendChild(tr);
+            });
+
+            table.appendChild(tbody);
+            container.appendChild(table);
+            return container;
+        }
+
+        fetch(rawUrl)
+            .then(r => {
+                if (!r.ok) throw new Error('Gist fetch failed');
+                return r.json();
+            })
+            .then(json => {
+                const tablesRoot = document.getElementById('tables');
+
+                // story tables (既存)
+                dates.forEach(d => {
+                    const tbl = makeTableFor(d, json);
+                    tablesRoot.appendChild(tbl);
+                });
+
+                // wedding section（追加）
+                const weddingSection = document.createElement('div');
+                weddingSection.className = 'space-y-6';
+                const weddingTitle = document.createElement('h3');
+                weddingTitle.className = 'text-2xl font-bold text-center mb-2 text-yellow-400';
+                weddingTitle.textContent = '結婚式残り席数';
+                weddingSection.appendChild(weddingTitle);
+
+                const grid = document.createElement('div');
+                grid.className = 'grid grid-cols-1 md:grid-cols-2 gap-6';
+                dates.forEach(d => {
+                    const wt = makeWeddingTable(d, json);
+                    grid.appendChild(wt);
+                });
+                weddingSection.appendChild(grid);
+                tablesRoot.appendChild(weddingSection);
+
+                const lu = document.getElementById('last-updated');
+                lu.textContent = json.lastUpdated ? `最終更新: ${json.lastUpdated}` : '';
+            })
+            .catch(err => {
+                console.error('tickets fetch error', err);
+                const root = document.getElementById('tables');
+                root.innerHTML = '<p class="text-red-400 text-center">空き状況の取得に失敗しました。</p>';
+            });
+    })();
+    </script>
 </body>
 </html>
