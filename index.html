@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +10,12 @@
 
     <!-- Tailwind CSSを読み込みます -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Google Fonts（日本語フォント）を読み込みます -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
-    
+
     <style>
         /* 全体にフォントを適用します */
         body {
@@ -22,54 +23,75 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
+
         /* セクションタイトルの共通スタイル */
         .section-title {
             @apply text-3xl md:text-4xl font-bold text-center tracking-widest border-b-2 border-yellow-400 pb-4 inline-block;
         }
+
         /* ヒーローセクションの背景アニメーション */
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
+
         #hero .background-image {
             animation: fadeIn 2s ease-in-out forwards;
             width: 100%;
             height: 100%;
-            object-fit: contain; /* 画像全体を表示 */
-            background-color: bg-gray-800; /* 余白部分を黒で埋める */
+            object-fit: contain;
+            /* 画像全体を表示 */
+            background-color: bg-gray-800;
+            /* 余白部分を黒で埋める */
         }
+
         /* スクロール時のフェードインアニメーション */
         .fade-in-on-scroll {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
+
         .fade-in-on-scroll.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
+
         /* 注意事項のトグルスタイル */
         details summary {
             cursor: pointer;
-            list-style: none; /* デフォルトの矢印を非表示 */
-            display: flex; /* Flexboxを使ってアイコンとテキストを配置 */
-            justify-content: space-between; /* テキストとアイコンを両端に配置 */
-            align-items: center; /* 垂直方向の中央揃え */
+            list-style: none;
+            /* デフォルトの矢印を非表示 */
+            display: flex;
+            /* Flexboxを使ってアイコンとテキストを配置 */
+            justify-content: space-between;
+            /* テキストとアイコンを両端に配置 */
+            align-items: center;
+            /* 垂直方向の中央揃え */
         }
+
         details summary::-webkit-details-marker {
             display: none;
         }
+
         details summary::after {
             content: '◀';
             font-size: 1.5rem;
             transition: transform 0.3s ease;
         }
+
         details[open] summary::after {
             content: '▼';
             transform: rotate(0deg);
         }
     </style>
 </head>
+
 <body class="bg-gray-900 text-white leading-relaxed">
 
     <!-- ▼ 固定ヘッダー ▼ -->
@@ -78,11 +100,11 @@
             <!-- ▼ 編集：公演タイトルを編集してください ▼ -->
             <h2 class="text-base md:text-lg font-bold tracking-widest whitespace-nowrap">ソクラテスの祝福 | 公式サイト</h2>
             <!-- ▲ 編集：公演タイトルを編集してください ▲ -->
-            
+
             <!-- ▼ 編集：チケット販売ページのURLをhref=""に設定してください ▼ -->
-            <a href="https://passmarket.yahoo.co.jp/event/show/detail/029t4dz5fzh41.html" 
-            class="bg-yellow-400 text-gray-900 font-bold px-4 py-2 rounded-full hover:bg-yellow-300 transition-colors duration-300 text-xs sm:text-sm md:text-base">
-             チケットはこちら
+            <a href="https://passmarket.yahoo.co.jp/event/show/detail/029t4dz5fzh41.html"
+                class="bg-yellow-400 text-gray-900 font-bold px-4 py-2 rounded-full hover:bg-yellow-300 transition-colors duration-300 text-xs sm:text-sm md:text-base">
+                チケットはこちら
             </a>
             <!-- ▲ 編集：チケット販売ページのURLをhref=""に設定してください ▲ -->
         </div>
@@ -93,20 +115,47 @@
     <main class="w-full">
 
         <!-- ▼ ヒーローセクション：メインのビジュアルです ▼ -->
-        <section id="hero" class="relative w-full h-screen flex items-center justify-center text-center overflow-hidden">
+        <section id="hero"
+            class="relative w-full h-screen flex items-center justify-center text-center overflow-hidden">
             <!-- 背景画像 -->
             <picture>
                 <!-- スマホ用画像 -->
                 <source srcset="main43.png" media="(max-width: 768px)">
                 <!-- パソコン用画像 -->
-                <img src="main169.png" alt="キービジュアル" class="background-image absolute top-0 left-0 w-full h-full object-contain z-0">
+                <img src="main169.png" alt="キービジュアル"
+                    class="background-image absolute top-0 left-0 w-full h-full object-contain z-0">
             </picture>
         </section>
         <!-- ▲ ヒーローセクション ▲ -->
 
         <div class="max-w-5xl mx-auto px-6 py-12 md:py-20 space-y-20 md:space-y-32">
 
-            <!-- ▼ イントロダクションセクション ▼ -->
+            <!-- ▼ 物語セクション ▼ -->
+            <section id="story" class="flex flex-col items-center fade-in-on-scroll">
+                <h2 class="section-title">STORY</h2>
+                <div class="mt-12 text-center max-w-2xl w-full mx-auto">
+                    <!-- ▼ 編集：物語のあらすじを編集してください ▼ -->
+                    <p class="mb-6">
+                        ある日、あなたの元に報せが届く。<br>
+                        それはあなたの友人である、岩倉真一郎と上白美咲の結婚の報告だった。<br><br>
+                        聡明だが少し抜けたところのある、真一郎。<br>
+                        しっかり者で誰にでも優しく寄り添う、美咲。<br><br>
+                        マーダーミステリーを通じて知り合った真一郎と美咲は、<br>
+                        同じようにして知り合ったあなたたちへ<br>
+                        挙式当日、結婚式までの時間に３つのレクリエーションを用意しているというのだ。<br><br>
+                        「いつだってみんなで協力して知恵を絞った、謎解きを。<br>
+                        みんなとの出逢いのきっかけにもなった、ミステリーを。<br>
+                        これまでの感謝と愛を込めて、ストーリープレイングを。」<br><br>
+                        そして迎える、結婚式当日。<br>
+                        二人を盛大に祝うため、二人の用意してくれたおもてなしを受けるため——<br>
+                        あなたは胸を高鳴らせながら、会場がある渋谷へ赴くのだった。<br><br>
+                        その《祝福》に、ただならぬ思惑が交錯することを知らないままに……。<br>
+                    </p>
+                    <!-- ▲ 編集：物語のあらすじを編集してください ▲ -->
+                </div>
+            </section>
+            <!-- ▲ 物語セクション ▲ -->
+
             <section id="introduction" class="text-center fade-in-on-scroll">
                 <!-- ▼ 編集：導入文やプロローグを編集してください ▼ -->
                 <p class="text-lg md:text-xl leading-loose">
@@ -115,84 +164,98 @@
                 </p>
                 <!-- ▲ 編集：導入文やプロローグを編集してください ▲ -->
             </section>
-            <!-- ▲ イントロダクションセクション ▲ -->
-
-            <!-- ▼ 物語セクション ▼ -->
-            <section id="story" class="flex flex-col items-center fade-in-on-scroll">
-                <h2 class="section-title">STORY</h2>
-                <div class="mt-12 text-center max-w-2xl w-full mx-auto">
-                    <!-- ▼ 編集：物語のあらすじを編集してください ▼ -->
-                    <p class="mb-6">
-                        マーダーミステリーで出会い、愛を育んだ一組のカップル。<br>
-                        ついに迎えた結婚式の日、彼らが贈るのは特別な体験——
-                    </p>
-                    <p>
-                        ストーリープレイング×周遊型謎解き×持ち帰り推理×結末編演劇<br>
-                        4つの要素が織りなすミステリーエンターテイメント。
-                    </p>
-                    <!-- ▲ 編集：物語のあらすじを編集してください ▲ -->
-                </div>
-            </section>
-            <!-- ▲ 物語セクション ▲ -->
 
             <!-- ▼ ABOUTセクション▼ -->
             <section id="about" class="flex flex-col items-center fade-in-on-scroll">
                 <h2 class="section-title">ABOUT</h2>
                 <div class="mt-12 text-center max-w-2xl w-full">
-                    <!-- ▼ 編集：この公演がどのようなものか説明してください（例：観客参加型演劇、 몰입형 연극など）▼ -->
+                    <!-- ▼ 編集：この公演がどのようなものか説明してください▼ -->
                     <h3 class="text-2xl font-bold mb-4 text-yellow-400">ソクラテスの祝福とは？</h3>
-                    <p class="text-left mb-12">
-                        ソクラテスの祝福の説明文ソクラテスの祝福の説明文ソクラテスの祝福の説明文ソクラテスの祝福の説明文ソクラテスの祝福の説明文ソクラテスの祝福の説明文ソクラテスの祝福の説明文ソクラテスの祝福の説明文ソクラテスの祝福の説明文ソクラテスの祝福の説明文
+                    <p class="mb-12">
+                        謎解き/ミステリ制作団体「ソクラテスの証明」が贈る、<br>
+                        ストーリープレイング × 周遊型謎解き × 持ち帰り推理 × 結末編演劇<br>
+                        4つの要素が織りなすミステリーエンターテイメントです。<br>
+                        あなたには実際に結婚式会場に足を運び、夫婦が友人たちのために用意した３つのゲーム<br><br>
+                        《ストーリープレイング・周遊型謎解き・持ち帰り推理（ミステリ）》<br><br>
+                        を遊んでいただきます。<br>
+                        それぞれのゲームは単体でも楽しめますが、考察をすることで<br>
+                        それぞれ物語の全体像に深く結びついていきます。<br>
+                        最後に、実際に披露宴《結末編演劇》に参加をすることで物語は幕を閉じ、<br>
+                        『ソクラテスの祝福』をひとつのミステリ作品として楽しむことができます。<br>
                     </p>
                     <!-- ▲ 編集：この公演がどのようなものか説明してください ▲ -->
 
                     <!-- ▼ 編集：公演形式の概要を編集してください ▼ -->
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 my-12 text-center">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8 my-12">
                         <div class="flex flex-col items-center">
-                            <div class="w-20 h-20 bg-gray-800 rounded-full flex items-center justify-center mb-4">
-                                <svg class="w-10 h-10 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <div class="w-20 h-20 bg-gray-800 rounded-full flex items-center justify-center mb-4" aria-hidden="true">
+                                <svg class="w-10 h-10 text-yellow-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
                             </div>
-                            <h4 class="font-bold text-lg">ストーリー</br>プレイング</h4>
-                            <p>90分</p>
-                            <p>説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明</p>
+                            <h4 class="font-bold text-lg md:text-xl text-center mb-2">ストーリープレイング</h4>
+                            <p class="text-sm text-gray-200 mb-2">90分</p>
+                            <p class="text-sm text-gray-300 max-w-sm leading-relaxed text-left">ストーリープレイングは、登場人物として会話や選択をしながら物語を体験する遊びです。《ソクラテスの祝福》の物語の登場人物として世界をお楽しみください。</p>
                         </div>
+
                         <div class="flex flex-col items-center">
-                            <div class="w-20 h-20 bg-gray-800 rounded-full flex items-center justify-center mb-4">
-                                <svg class="w-10 h-10 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                            <div class="w-20 h-20 bg-gray-800 rounded-full flex items-center justify-center mb-4" aria-hidden="true">
+                                <svg class="w-10 h-10 text-yellow-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z">
+                                    </path>
+                                </svg>
                             </div>
-                            <h4 class="font-bold text-lg">周遊型謎解き</h4>
-                            <p>60分〜90分</p>
-                            <p>説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明</p>
+                            <h4 class="font-bold text-lg md:text-xl text-center mb-2">周遊型謎解き</h4>
+                            <p class="text-sm text-gray-200 mb-2">60分〜90分</p>
+                            <p class="text-sm text-gray-300 max-w-sm leading-relaxed text-left">周遊型謎解きは、街や施設を実際に巡りながら、各地に設置されたヒントや手がかりを集めて謎を解く体験型の遊びです。実際に渋谷の街を散策しながら謎を解いていきます。</p>
                         </div>
+
                         <div class="flex flex-col items-center">
-                            <div class="w-20 h-20 bg-gray-800 rounded-full flex items-center justify-center mb-4">
-                                <svg class="w-10 h-10 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <div class="w-20 h-20 bg-gray-800 rounded-full flex items-center justify-center mb-4" aria-hidden="true">
+                                <svg class="w-10 h-10 text-yellow-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
                             </div>
-                            <h4 class="font-bold text-lg">持ち帰り推理</h4>
-                            <p>30分〜60分</p>
-                            <p>説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明</p>
+                            <h4 class="font-bold text-lg md:text-xl text-center mb-2">持ち帰り推理</h4>
+                            <p class="text-sm text-gray-200 mb-2">30分〜60分</p>
+                            <p class="text-sm text-gray-300 max-w-sm leading-relaxed text-left">持ち帰り推理は、キットを入手し落ち着いた環境でじっくり推理を楽しむコンテンツです。制限時間や場所に縛られず、好きなときにミステリに挑戦できるのが特徴です。</p>
                         </div>
+
                         <div class="flex flex-col items-center">
-                            <div class="w-20 h-20 bg-gray-800 rounded-full flex items-center justify-center mb-4">
-                                <svg class="w-10 h-10 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <div class="w-20 h-20 bg-gray-800 rounded-full flex items-center justify-center mb-4" aria-hidden="true">
+                                <svg class="w-10 h-10 text-yellow-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
                             </div>
-                            <h4 class="font-bold text-lg">結末編演劇</h4>
-                            <p>40分</p>
-                            <p>説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明</p>
+                            <h4 class="font-bold text-lg md:text-xl text-center mb-2">結末編演劇</h4>
+                            <p class="text-sm text-gray-200 mb-2">40分</p>
+                            <p class="text-sm text-gray-300 max-w-sm leading-relaxed text-left">結末編演劇では、様々な要素を含んだ《ソクラテスの祝福》という物語がどのような結末を辿るのか、目の前で繰り広げられる結婚式を見届けていただきます。</p>
                         </div>
                     </div>
                     <!-- ▲ 編集：公演形式の概要を編集してください ▲ -->
 
                     <!-- ▼ 編集：参加に必要なものを編集してください ▼ -->
                     <div class="bg-gray-800 p-6 md:p-8 rounded-lg text-left">
-                       <h4 class="text-xl font-bold text-center mb-4 text-yellow-400">ご参加にあたり必要なもの</h4>
-                       <ul class="list-disc list-inside space-y-2">
+                        <h4 class="text-xl font-bold text-center mb-4 text-yellow-400">ご参加にあたり必要なもの</h4>
+                        <ul class="list-disc list-inside space-y-2">
                             <li>スマートフォンやタブレットなど、インターネットに接続された端末</li>
                             <li class="text-sm text-gray-400">端末のOSとブラウザは予め最新版へのアップデートをお願いいたします。</li>
                             <li class="text-sm text-gray-400">インターネットの通信費はお客様のご負担となりますので、ご了承ください。</li>
                             <li>LINEアプリ（事前にインストールしていただき、操作のご確認をお願いいたします）</li>
                             <li>イヤホン（動画を視聴する場面がございます）</li>
-                       </ul>
+                        </ul>
                     </div>
                     <!-- ▲ 編集：参加に必要なものを編集してください ▲ -->
                 </div>
@@ -203,43 +266,57 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         <!-- Step 1 -->
                         <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 relative">
-                            <div class="absolute -top-4 -left-4 w-10 h-10 bg-yellow-400 text-gray-900 font-bold text-xl flex items-center justify-center rounded-full">1</div>
+                            <div
+                                class="absolute -top-4 -left-4 w-10 h-10 bg-yellow-400 text-gray-900 font-bold text-xl flex items-center justify-center rounded-full">
+                                1</div>
                             <h4 class="font-bold text-lg mt-4 mb-2">チケットを手に入れよう！</h4>
                             <p class="text-sm text-gray-300">会場と参加日時をチェックして、チケットを購入しましょう！</p>
                         </div>
                         <!-- Step 2 -->
                         <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 relative">
-                            <div class="absolute -top-4 -left-4 w-10 h-10 bg-yellow-400 text-gray-900 font-bold text-xl flex items-center justify-center rounded-full">2</div>
+                            <div
+                                class="absolute -top-4 -left-4 w-10 h-10 bg-yellow-400 text-gray-900 font-bold text-xl flex items-center justify-center rounded-full">
+                                2</div>
                             <h4 class="font-bold text-lg mt-4 mb-2">開演5分前には会場へ！</h4>
                             <p class="text-sm text-gray-300">電子チケットに記載された日時に合わせて、会場に向かいましょう！</p>
                         </div>
                         <!-- Step 3 -->
                         <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 relative">
-                            <div class="absolute -top-4 -left-4 w-10 h-10 bg-yellow-400 text-gray-900 font-bold text-xl flex items-center justify-center rounded-full">3</div>
+                            <div
+                                class="absolute -top-4 -left-4 w-10 h-10 bg-yellow-400 text-gray-900 font-bold text-xl flex items-center justify-center rounded-full">
+                                3</div>
                             <h4 class="font-bold text-lg mt-4 mb-2">ストーリープレイングがスタート！</h4>
                             <p class="text-sm text-gray-300">個性豊かな登場人物をあなた自身が演じ、目の前で物語が展開していきます。</p>
                         </div>
                         <!-- Step 4 -->
                         <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 relative">
-                            <div class="absolute -top-4 -left-4 w-10 h-10 bg-yellow-400 text-gray-900 font-bold text-xl flex items-center justify-center rounded-full">4</div>
+                            <div
+                                class="absolute -top-4 -left-4 w-10 h-10 bg-yellow-400 text-gray-900 font-bold text-xl flex items-center justify-center rounded-full">
+                                4</div>
                             <h4 class="font-bold text-lg mt-4 mb-2">周遊型謎解きを開始！</h4>
                             <p class="text-sm text-gray-300">会場で受け取ったキットを使って渋谷の街を散策。物語の謎を解き明かしましょう！</p>
                         </div>
                         <!-- Step 5 -->
                         <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 relative">
-                            <div class="absolute -top-4 -left-4 w-10 h-10 bg-yellow-400 text-gray-900 font-bold text-xl flex items-center justify-center rounded-full">5</div>
+                            <div
+                                class="absolute -top-4 -left-4 w-10 h-10 bg-yellow-400 text-gray-900 font-bold text-xl flex items-center justify-center rounded-full">
+                                5</div>
                             <h4 class="font-bold text-lg mt-4 mb-2">持ち帰り推理を解く！</h4>
                             <p class="text-sm text-gray-300">警察からの依頼で、巷をざわめかせている怪盗を捕まえます！</p>
                         </div>
                         <!-- Step 6 -->
                         <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 relative">
-                            <div class="absolute -top-4 -left-4 w-10 h-10 bg-yellow-400 text-gray-900 font-bold text-xl flex items-center justify-center rounded-full">6</div>
+                            <div
+                                class="absolute -top-4 -left-4 w-10 h-10 bg-yellow-400 text-gray-900 font-bold text-xl flex items-center justify-center rounded-full">
+                                6</div>
                             <h4 class="font-bold text-lg mt-4 mb-2">考察タイム</h4>
                             <p class="text-sm text-gray-300">これまで体験したコンテンツから、物語を考察してみましょう！</p>
                         </div>
                         <!-- Step 7 -->
                         <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 relative">
-                            <div class="absolute -top-4 -left-4 w-10 h-10 bg-yellow-400 text-gray-900 font-bold text-xl flex items-center justify-center rounded-full">7</div>
+                            <div
+                                class="absolute -top-4 -left-4 w-10 h-10 bg-yellow-400 text-gray-900 font-bold text-xl flex items-center justify-center rounded-full">
+                                7</div>
                             <h4 class="font-bold text-lg mt-4 mb-2">結末編演劇（結婚式）を見よう！</h4>
                             <p class="text-sm text-gray-300">ふたりの結婚式を見届けましょう！一体なにが起こるやら……？</p>
                         </div>
@@ -249,17 +326,17 @@
             </section>
             <!-- ▲ ABOUTセクション ▲ -->
 
-        <section id="ticket-availability" class="mt-12 fade-in-on-scroll">
-            <div class="max-w-5xl mx-auto px-6">
-                <h3 class="text-2xl font-bold text-center mb-6 text-yellow-400">チケット空き状況（ストプレ）</h3>
+            <section id="ticket-availability" class="mt-12 fade-in-on-scroll">
+                <div class="max-w-5xl mx-auto px-6">
+                    <h3 class="text-2xl font-bold text-center mb-6 text-yellow-400">チケット空き状況（ストプレ）</h3>
 
-                <div id="tables" class="space-y-12">
-                    <!-- テーブルはJSで生成されます -->
+                    <div id="tables" class="space-y-12">
+                        <!-- テーブルはJSで生成されます -->
+                    </div>
+
+                    <p id="last-updated" class="text-sm text-gray-400 mt-4 text-center"></p>
                 </div>
-
-                <p id="last-updated" class="text-sm text-gray-400 mt-4 text-center"></p>
-            </div>
-        </section>
+            </section>
 
 
 
@@ -295,7 +372,8 @@
                     <!-- キャスト情報：ここをコピーして人数分増やしてください -->
                     <div class="text-center">
                         <!-- ▼ 編集：キャストの画像と名前、役名を編集してください ▼ -->
-                        <img src="https://placehold.co/400x500/333333/FFFFFF?text=castA" alt="キャストA" class="w-full rounded-lg shadow-lg mb-4">
+                        <img src="https://placehold.co/400x500/333333/FFFFFF?text=castA" alt="キャストA"
+                            class="w-full rounded-lg shadow-lg mb-4">
                         <p class="font-bold text-lg">キャスト名 A</p>
                         <p class="text-sm text-gray-400">役名</p>
                         <!-- ▲ 編集：キャストの画像と名前、役名を編集してください ▲ -->
@@ -303,13 +381,15 @@
                     <!-- /キャスト情報 -->
 
                     <div class="text-center">
-                        <img src="https://placehold.co/400x500/333333/FFFFFF?text=castB" alt="キャストB" class="w-full rounded-lg shadow-lg mb-4">
+                        <img src="https://placehold.co/400x500/333333/FFFFFF?text=castB" alt="キャストB"
+                            class="w-full rounded-lg shadow-lg mb-4">
                         <p class="font-bold text-lg">キャスト名 B</p>
                         <p class="text-sm text-gray-400">役名</p>
                     </div>
 
                     <div class="text-center">
-                        <img src="https://placehold.co/400x500/333333/FFFFFF?text=castC" alt="キャストC" class="w-full rounded-lg shadow-lg mb-4">
+                        <img src="https://placehold.co/400x500/333333/FFFFFF?text=castC" alt="キャストC"
+                            class="w-full rounded-lg shadow-lg mb-4">
                         <p class="font-bold text-lg">キャスト名 C</p>
                         <p class="text-sm text-gray-400">役名</p>
                     </div>
@@ -333,7 +413,8 @@
                         </div>
                         <div class="py-4 grid grid-cols-3 gap-4">
                             <dt class="font-bold text-yellow-400">会場</dt>
-                            <dd class="col-span-2">東京都渋谷区道玄坂付近<br>（<a href="#" class="underline hover:text-yellow-300">Google Map</a>）</dd>
+                            <dd class="col-span-2">東京都渋谷区道玄坂付近<br>（<a href="#"
+                                    class="underline hover:text-yellow-300">Google Map</a>）</dd>
                         </div>
                         <div class="py-4 grid grid-cols-3 gap-4">
                             <dt class="font-bold text-yellow-400">チケット料金</dt>
@@ -363,50 +444,52 @@
                     <details class="text-left group">
                         <summary class="font-bold text-xl md:text-2xl text-yellow-400 py-2">トリガーワーニングシート</summary>
                         <div class="mt-4 p-4 border-l-4 border-yellow-400 bg-gray-900/50">
-                            <p class="mb-4">どんなことが起きるの？を知らずに体験すると、辛くなってしまう方がいらっしゃるかもしれない、と考えられる項目をまとめてみました。（項目は、随時更新される場合があります）</p>
-                            <p>その他にも、安心してご観劇いただくために、ご不明な点や気になることがある場合、また、下記項目について「どのぐらいの程度なの？」など詳しく知りたい場合には、メールにてお問い合わせください。</p>
+                            <p class="mb-4">
+                                どんなことが起きるの？を知らずに体験すると、辛くなってしまう方がいらっしゃるかもしれない、と考えられる項目をまとめてみました。（項目は、随時更新される場合があります）</p>
+                            <p>その他にも、安心してご観劇いただくために、ご不明な点や気になることがある場合、また、下記項目について「どのぐらいの程度なの？」など詳しく知りたい場合には、メールにてお問い合わせください。
+                            </p>
                         </div>
                     </details>
                 </div>
             </section>
             <!-- ▲ トリガーワーニングシートセクション ▲ -->
 
-            <section id="about" class="flex flex-col items-center fade-in-on-scroll">
-                <h2 class="section-title">ABOUT US</h2>
-                <div class="mt-12 text-center max-w-2xl w-full">
-                    <!-- ▼ 編集：この公演がどのようなものか説明してください（例：観客参加型演劇、 몰입형 연극など）▼ -->
-                    <h3 class="text-2xl font-bold mb-4 text-yellow-400">ソクラテスの証明とは？</h3>
-                    <p class="text-left mb-12">
-                        ソクラテスの証明の説明文ソクラテスの証明の説明文ソクラテスの証明の説明文ソクラテスの証明の説明文ソクラテスの証明の説明文ソクラテスの証明の説明文ソクラテスの証明の説明文
-                    </p>
-                    <!-- ▲ 編集：この公演がどのようなものか説明してください ▲ -->
-                </div>
-                <div class="mt-12 grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 w-full">
-                    <!-- キャスト情報：ここをコピーして人数分増やしてください -->
-                    <div class="text-center">
-                        <!-- ▼ 編集：キャストの画像と名前、役名を編集してください ▼ -->
-                        <img src="https://placehold.co/400x500/333333/FFFFFF?text=image" alt="キャストA" class="w-full rounded-lg shadow-lg mb-4">
-                        <p class="font-bold text-lg">迷宮山荘怪奇事件</p>
-                        <p class="text-sm text-gray-400">宿泊型ミステリ</p>
-                        <!-- ▲ 編集：キャストの画像と名前、役名を編集してください ▲ -->
-                    </div>
-                    <!-- /キャスト情報 -->
+            <!-- <section id="about" class="flex flex-col items-center fade-in-on-scroll"> -->
+            <!-- <h2 class="section-title">ABOUT US</h2> -->
+            <!-- <div class="mt-12 text-center max-w-2xl w-full"> -->
+            <!-- ▼ 編集：この公演がどのようなものか説明してください（例：観客参加型演劇、 몰입형 연극など）▼ -->
+            <!-- <h3 class="text-2xl font-bold mb-4 text-yellow-400">ソクラテスの証明とは？</h3> -->
+            <!-- <p class="text-left mb-12"> -->
+            <!-- ソクラテスの証明の説明文ソクラテスの証明の説明文ソクラテスの証明の説明文ソクラテスの証明の説明文ソクラテスの証明の説明文ソクラテスの証明の説明文ソクラテスの証明の説明文 -->
+            <!-- </p> -->
+            <!-- ▲ 編集：この公演がどのようなものか説明してください ▲ -->
+            <!-- </div> -->
+            <!-- <div class="mt-12 grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 w-full"> -->
+            <!-- キャスト情報：ここをコピーして人数分増やしてください -->
+            <!-- <div class="text-center"> -->
+            <!-- ▼ 編集：キャストの画像と名前、役名を編集してください ▼ -->
+            <!-- <img src="https://placehold.co/400x500/333333/FFFFFF?text=image" alt="キャストA" class="w-full rounded-lg shadow-lg mb-4"> -->
+            <!-- <p class="font-bold text-lg">迷宮山荘怪奇事件</p> -->
+            <!-- <p class="text-sm text-gray-400">宿泊型ミステリ</p> -->
+            <!-- ▲ 編集：キャストの画像と名前、役名を編集してください ▲ -->
+            <!-- </div> -->
+            <!-- /キャスト情報 -->
 
-                    <div class="text-center">
-                        <img src="https://placehold.co/400x500/333333/FFFFFF?text=image" alt="キャストB" class="w-full rounded-lg shadow-lg mb-4">
-                        <p class="font-bold text-lg">サイエンRTA</p>
-                        <p class="text-sm text-gray-400">RealTimeAttack型周遊謎</p>
-                    </div>
+            <!-- <div class="text-center"> -->
+            <!-- <img src="https://placehold.co/400x500/333333/FFFFFF?text=image" alt="キャストB" class="w-full rounded-lg shadow-lg mb-4"> -->
+            <!-- <p class="font-bold text-lg">サイエンRTA</p> -->
+            <!-- <p class="text-sm text-gray-400">RealTimeAttack型周遊謎</p> -->
+            <!-- </div> -->
 
-                    <div class="text-center">
-                        <img src="https://placehold.co/400x500/333333/FFFFFF?text=image" alt="キャストC" class="w-full rounded-lg shadow-lg mb-4">
-                        <p class="font-bold text-lg">ソクラテスの追悼</p>
-                        <p class="text-sm text-gray-400">マダミスx周遊型謎解きx持ち帰り推理x解決編演劇</p>
-                    </div>
-                </div>
+            <!-- <div class="text-center"> -->
+            <!-- <img src="https://placehold.co/400x500/333333/FFFFFF?text=image" alt="キャストC" class="w-full rounded-lg shadow-lg mb-4"> -->
+            <!-- <p class="font-bold text-lg">ソクラテスの追悼</p> -->
+            <!-- <p class="text-sm text-gray-400">マダミスx周遊型謎解きx持ち帰り推理x解決編演劇</p> -->
+            <!-- </div> -->
+            <!-- </div> -->
 
-                <!-- ▲ 編集：楽しみ方（遊び方）のステップを編集してください ▲ -->
-            </section>
+            <!-- ▲ 編集：楽しみ方（遊び方）のステップを編集してください ▲ -->
+            <!-- </section> -->
         </div>
     </main>
 
@@ -445,164 +528,165 @@
         });
     </script>
     <script>
-    (function(){
-        const rawUrl = 'https://gist.githubusercontent.com/massy-o/25cb71f6d965c93c4579fb01cf10bf7d/raw';
-        const venues = ['会場A','会場B','会場C','会場D','会場E'];
-        const times = [
-            {key: '10:00', label: '10:00〜11:30'},
-            {key: '11:40', label: '11:40〜13:10'},
-            {key: '13:30', label: '13:30〜15:00'},
-            {key: '15:10', label: '15:10〜16:40'},
-            {key: '16:50', label: '16:50〜18:10'}
-        ];
-        const dates = ['10/18','10/19'];
+        (function () {
+            const rawUrl = 'https://gist.githubusercontent.com/massy-o/25cb71f6d965c93c4579fb01cf10bf7d/raw';
+            const venues = ['会場A', '会場B', '会場C', '会場D', '会場E'];
+            const times = [
+                { key: '10:00', label: '10:00〜11:30' },
+                { key: '11:40', label: '11:40〜13:10' },
+                { key: '13:30', label: '13:30〜15:00' },
+                { key: '15:10', label: '15:10〜16:40' },
+                { key: '16:50', label: '16:50〜18:10' }
+            ];
+            const dates = ['10/18', '10/19'];
 
-        const weddingTimes = [
-            {key: '14:40', label: '14:40〜15:20'},
-            {key: '15:40', label: '15:40〜16:20'},
-            {key: '16:40', label: '16:40〜17:20'},
-            {key: '17:40', label: '17:40〜18:20'},
-            {key: '18:40', label: '18:40〜19:20'}
-        ];
+            const weddingTimes = [
+                { key: '14:40', label: '14:40〜15:20' },
+                { key: '15:40', label: '15:40〜16:20' },
+                { key: '16:40', label: '16:40〜17:20' },
+                { key: '17:40', label: '17:40〜18:20' },
+                { key: '18:40', label: '18:40〜19:20' }
+            ];
 
-        function makeTableFor(date, data) {
-            const container = document.createElement('div');
-            container.className = 'bg-black/60 p-4 rounded-lg';
+            function makeTableFor(date, data) {
+                const container = document.createElement('div');
+                container.className = 'bg-black/60 p-4 rounded-lg';
 
-            const title = document.createElement('h4');
-            title.className = 'text-center font-bold mb-4';
-            title.textContent = date;
-            container.appendChild(title);
+                const title = document.createElement('h4');
+                title.className = 'text-center font-bold mb-4';
+                title.textContent = date;
+                container.appendChild(title);
 
-            const table = document.createElement('table');
-            table.className = 'w-full table-fixed border-collapse text-sm';
-            // header
-            const thead = document.createElement('thead');
-            const htr = document.createElement('tr');
-            htr.innerHTML = `<th class="border-2 border-white px-2 py-2 bg-black"></th>` +
-                venues.map(v => `<th class="border-2 border-white px-2 py-2 bg-black">${v}</th>`).join('');
-            thead.appendChild(htr);
-            table.appendChild(thead);
+                const table = document.createElement('table');
+                table.className = 'w-full table-fixed border-collapse text-sm';
+                // header
+                const thead = document.createElement('thead');
+                const htr = document.createElement('tr');
+                htr.innerHTML = `<th class="border-2 border-white px-2 py-2 bg-black"></th>` +
+                    venues.map(v => `<th class="border-2 border-white px-2 py-2 bg-black">${v}</th>`).join('');
+                thead.appendChild(htr);
+                table.appendChild(thead);
 
-            const tbody = document.createElement('tbody');
-            times.forEach(t => {
-                const tr = document.createElement('tr');
-                const timeTd = document.createElement('td');
-                timeTd.className = 'border-2 border-white px-2 py-2 bg-black font-bold';
-                timeTd.textContent = t.label;
-                tr.appendChild(timeTd);
+                const tbody = document.createElement('tbody');
+                times.forEach(t => {
+                    const tr = document.createElement('tr');
+                    const timeTd = document.createElement('td');
+                    timeTd.className = 'border-2 border-white px-2 py-2 bg-black font-bold';
+                    timeTd.textContent = t.label;
+                    tr.appendChild(timeTd);
 
-                venues.forEach(v => {
-                    const td = document.createElement('td');
-                    td.className = 'border-2 border-white px-2 py-2 text-center';
+                    venues.forEach(v => {
+                        const td = document.createElement('td');
+                        td.className = 'border-2 border-white px-2 py-2 text-center';
+                        const key = `${date} ${t.key}`;
+                        let val = 0;
+                        if (data && data.storyTickets && data.storyTickets[v] && data.storyTickets[v][key] !== undefined) {
+                            val = data.storyTickets[v][key];
+                        }
+                        td.textContent = val;
+                        if (val === 0) {
+                            td.classList.add('bg-gray-700', 'text-gray-300');
+                        } else {
+                            td.classList.add('bg-white', 'text-gray-900', 'font-bold');
+                        }
+                        tr.appendChild(td);
+                    });
+                    tbody.appendChild(tr);
+                });
+
+                table.appendChild(tbody);
+                container.appendChild(table);
+                return container;
+            }
+
+            function makeWeddingTable(date, data) {
+                const container = document.createElement('div');
+                container.className = 'bg-black/60 p-4 rounded-lg';
+
+                const title = document.createElement('h4');
+                title.className = 'text-center font-bold mb-4';
+                title.textContent = date;
+                container.appendChild(title);
+
+                const table = document.createElement('table');
+                table.className = 'w-full table-auto border-collapse text-sm';
+                const thead = document.createElement('thead');
+                const htr = document.createElement('tr');
+                htr.innerHTML = `<th class="border-2 border-white px-3 py-2 bg-black">時間</th><th class="border-2 border-white px-3 py-2 bg-black">残り席数</th>`;
+                thead.appendChild(htr);
+                table.appendChild(thead);
+
+                const tbody = document.createElement('tbody');
+                weddingTimes.forEach(t => {
+                    const tr = document.createElement('tr');
+                    const timeTd = document.createElement('td');
+                    timeTd.className = 'border-2 border-white px-3 py-2 bg-black font-bold';
+                    timeTd.textContent = t.label;
+                    tr.appendChild(timeTd);
+
+                    const valTd = document.createElement('td');
+                    valTd.className = 'border-2 border-white px-3 py-2 text-center';
                     const key = `${date} ${t.key}`;
-                    let val = 0;
-                    if (data && data.storyTickets && data.storyTickets[v] && data.storyTickets[v][key] !== undefined) {
-                        val = data.storyTickets[v][key];
+                    let val = '-';
+                    if (data && data.weddingTickets && data.weddingTickets[key] !== undefined) {
+                        val = data.weddingTickets[key];
                     }
-                    td.textContent = val;
-                    if (val === 0) {
-                        td.classList.add('bg-gray-700','text-gray-300');
+                    valTd.textContent = val;
+                    if (val === 0 || val === '-') {
+                        valTd.classList.add('bg-gray-700', 'text-gray-300');
                     } else {
-                        td.classList.add('bg-white','text-gray-900','font-bold');
+                        valTd.classList.add('bg-white', 'text-gray-900', 'font-bold');
                     }
-                    tr.appendChild(td);
-                });
-                tbody.appendChild(tr);
-            });
-
-            table.appendChild(tbody);
-            container.appendChild(table);
-            return container;
-        }
-
-        function makeWeddingTable(date, data) {
-            const container = document.createElement('div');
-            container.className = 'bg-black/60 p-4 rounded-lg';
-
-            const title = document.createElement('h4');
-            title.className = 'text-center font-bold mb-4';
-            title.textContent = date;
-            container.appendChild(title);
-
-            const table = document.createElement('table');
-            table.className = 'w-full table-auto border-collapse text-sm';
-            const thead = document.createElement('thead');
-            const htr = document.createElement('tr');
-            htr.innerHTML = `<th class="border-2 border-white px-3 py-2 bg-black">時間</th><th class="border-2 border-white px-3 py-2 bg-black">残り席数</th>`;
-            thead.appendChild(htr);
-            table.appendChild(thead);
-
-            const tbody = document.createElement('tbody');
-            weddingTimes.forEach(t => {
-                const tr = document.createElement('tr');
-                const timeTd = document.createElement('td');
-                timeTd.className = 'border-2 border-white px-3 py-2 bg-black font-bold';
-                timeTd.textContent = t.label;
-                tr.appendChild(timeTd);
-
-                const valTd = document.createElement('td');
-                valTd.className = 'border-2 border-white px-3 py-2 text-center';
-                const key = `${date} ${t.key}`;
-                let val = '-';
-                if (data && data.weddingTickets && data.weddingTickets[key] !== undefined) {
-                    val = data.weddingTickets[key];
-                }
-                valTd.textContent = val;
-                if (val === 0 || val === '-') {
-                    valTd.classList.add('bg-gray-700','text-gray-300');
-                } else {
-                    valTd.classList.add('bg-white','text-gray-900','font-bold');
-                }
-                tr.appendChild(valTd);
-                tbody.appendChild(tr);
-            });
-
-            table.appendChild(tbody);
-            container.appendChild(table);
-            return container;
-        }
-
-        fetch(rawUrl)
-            .then(r => {
-                if (!r.ok) throw new Error('Gist fetch failed');
-                return r.json();
-            })
-            .then(json => {
-                const tablesRoot = document.getElementById('tables');
-
-                // story tables (既存)
-                dates.forEach(d => {
-                    const tbl = makeTableFor(d, json);
-                    tablesRoot.appendChild(tbl);
+                    tr.appendChild(valTd);
+                    tbody.appendChild(tr);
                 });
 
-                // wedding section（追加）
-                const weddingSection = document.createElement('div');
-                weddingSection.className = 'space-y-6';
-                const weddingTitle = document.createElement('h3');
-                weddingTitle.className = 'text-2xl font-bold text-center mb-2 text-yellow-400';
-                weddingTitle.textContent = '結婚式残り席数';
-                weddingSection.appendChild(weddingTitle);
+                table.appendChild(tbody);
+                container.appendChild(table);
+                return container;
+            }
 
-                const grid = document.createElement('div');
-                grid.className = 'grid grid-cols-1 md:grid-cols-2 gap-6';
-                dates.forEach(d => {
-                    const wt = makeWeddingTable(d, json);
-                    grid.appendChild(wt);
+            fetch(rawUrl)
+                .then(r => {
+                    if (!r.ok) throw new Error('Gist fetch failed');
+                    return r.json();
+                })
+                .then(json => {
+                    const tablesRoot = document.getElementById('tables');
+
+                    // story tables (既存)
+                    dates.forEach(d => {
+                        const tbl = makeTableFor(d, json);
+                        tablesRoot.appendChild(tbl);
+                    });
+
+                    // wedding section（追加）
+                    const weddingSection = document.createElement('div');
+                    weddingSection.className = 'space-y-6';
+                    const weddingTitle = document.createElement('h3');
+                    weddingTitle.className = 'text-2xl font-bold text-center mb-2 text-yellow-400';
+                    weddingTitle.textContent = '結婚式残り席数';
+                    weddingSection.appendChild(weddingTitle);
+
+                    const grid = document.createElement('div');
+                    grid.className = 'grid grid-cols-1 md:grid-cols-2 gap-6';
+                    dates.forEach(d => {
+                        const wt = makeWeddingTable(d, json);
+                        grid.appendChild(wt);
+                    });
+                    weddingSection.appendChild(grid);
+                    tablesRoot.appendChild(weddingSection);
+
+                    const lu = document.getElementById('last-updated');
+                    lu.textContent = json.lastUpdated ? `最終更新: ${json.lastUpdated}` : '';
+                })
+                .catch(err => {
+                    console.error('tickets fetch error', err);
+                    const root = document.getElementById('tables');
+                    root.innerHTML = '<p class="text-red-400 text-center">空き状況の取得に失敗しました。</p>';
                 });
-                weddingSection.appendChild(grid);
-                tablesRoot.appendChild(weddingSection);
-
-                const lu = document.getElementById('last-updated');
-                lu.textContent = json.lastUpdated ? `最終更新: ${json.lastUpdated}` : '';
-            })
-            .catch(err => {
-                console.error('tickets fetch error', err);
-                const root = document.getElementById('tables');
-                root.innerHTML = '<p class="text-red-400 text-center">空き状況の取得に失敗しました。</p>';
-            });
-    })();
+        })();
     </script>
 </body>
+
 </html>
