@@ -568,7 +568,7 @@
                         if (data && data.storyTickets && data.storyTickets[v] && data.storyTickets[v][key] !== undefined) {
                             val = data.storyTickets[v][key];
                         }
-                        td.textContent = val;
+                        td.textContent = `${val}/6`;
                         if (val === 0) {
                             td.classList.add('bg-gray-700', 'text-gray-300');
                         } else {
