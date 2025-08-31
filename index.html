@@ -49,6 +49,7 @@
             /* 画像全体を表示 */
             background-color: bg-gray-800;
             /* 余白部分を黒で埋める */
+            margin-top: 4rem; /* ヘッダーの高さ分のマージンを追加 */
         }
 
         /* スクロール時のフェードインアニメーション */
@@ -105,7 +106,7 @@
     <header class="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-sm shadow-lg">
         <div class="max-w-5xl mx-auto px-6 py-3 flex justify-between items-center">
             <!-- ▼ 編集：公演タイトルを編集してください ▼ -->
-            <h2 class="text-base md:text-lg font-bold tracking-widest whitespace-nowrap">ソクラテスの祝福 | 公式サイト</h2>
+            <h2 class="text-ms md:text-lg font-bold tracking-widest whitespace-nowrap">ソクラテスの祝福 | 公式サイト</h2>
             <!-- ▲ 編集：公演タイトルを編集してください ▲ -->
 
             <!-- ▼ 編集：チケット販売ページのURLをhref=""に設定してください ▼ -->
@@ -120,7 +121,6 @@
 
     <!-- メインコンテンツ -->
     <main class="w-full">
-
         <!-- ▼ ヒーローセクション：メインのビジュアルです ▼ -->
         <section id="hero"
             class="relative w-full h-screen flex items-center justify-center text-center overflow-hidden">
@@ -140,9 +140,9 @@
             <!-- ▼ 物語セクション ▼ -->
             <section id="story" class="flex flex-col items-center fade-in-on-scroll">
                 <h2 class="section-title">STORY</h2>
-                <div class="mt-12 text-center max-w-2xl w-full mx-auto">
+                <div class="mt-12 text-center max-w-4xl w-full mx-auto">
                     <!-- ▼ 編集：物語のあらすじを編集してください ▼ -->
-                    <p class="mb-6">
+                    <p class="mb-6 text-ms md:text-xl leading-relaxed md:leading-loose">
                         ある日、あなたの元に報せが届く。<br>
                         それはあなたの友人である、岩倉真一郎と上白美咲の結婚の報告だった。<br><br>
                         聡明だが少し抜けたところのある、真一郎。<br>
@@ -154,7 +154,7 @@
                         みんなとの出逢いのきっかけにもなった、ミステリーを。<br>
                         これまでの感謝と愛を込めて、ストーリープレイングを。」<br><br>
                         そして迎える、結婚式当日。<br>
-                        二人を盛大に祝うため、二人の用意してくれたおもてなしを受けるため——<br>
+                        二人を盛大に祝うため、二人の用意してくれたおもてなしを受けるため――<br>
                         あなたは胸を高鳴らせながら、会場がある渋谷へ赴くのだった。<br><br>
                         その《祝福》に、ただならぬ思惑が交錯することを知らないままに……。<br>
                     </p>
@@ -165,9 +165,9 @@
 
             <section id="introduction" class="text-center fade-in-on-scroll">
                 <!-- ▼ 編集：導入文やプロローグを編集してください ▼ -->
-                <p class="text-lg md:text-xl leading-loose">
+                <p class="text-ms md:text-2xl leading-loose md:leading-loose">
                     「死は、人間にとって最大の祝福であるかもしれない」 <br>
-                    —— ソクラテス<br>
+                    ―― ソクラテス<br>
                 </p>
                 <!-- ▲ 編集：導入文やプロローグを編集してください ▲ -->
             </section>
@@ -175,14 +175,14 @@
             <!-- ▼ ABOUTセクション▼ -->
             <section id="about" class="flex flex-col items-center fade-in-on-scroll">
                 <h2 class="section-title">ABOUT</h2>
-                <div class="mt-12 text-center max-w-2xl w-full">
+                <div class="mt-12 text-center max-w-4xl w-full">
                     <!-- ▼ 編集：この公演がどのようなものか説明してください▼ -->
                     <h3 class="text-2xl font-bold mb-4 text-yellow-400">ソクラテスの祝福とは？</h3>
-                    <p class="mb-12">
+                    <p class="mb-12 text-ms md:text-xl leading-relaxed md:leading-loose">
                         謎解き/ミステリ制作団体「ソクラテスの証明」が贈る、<br>
                         ストーリープレイング × 周遊型謎解き × 持ち帰り推理 × 結末編演劇<br>
                         4つの要素が織りなすミステリーエンターテイメントです。<br>
-                        あなたには実際に結婚式会場に足を運び、夫婦が友人たちのために用意した３つのゲーム<br><br>
+                        あなたには実際に結婚式会場に足を運び、夫婦が友人たちのために用意した３つのゲーム <br><br>
                         《ストーリープレイング・周遊型謎解き・持ち帰り推理（ミステリ）》<br><br>
                         を遊んでいただきます。<br>
                         それぞれのゲームは単体でも楽しめますが、考察をすることで<br>
@@ -201,8 +201,8 @@
                                      style="filter: sepia(0.85) saturate(2.2) hue-rotate(20deg) brightness(2) contrast(1.05);">
                             </div>
                             <h4 class="font-bold text-lg md:text-xl text-center mb-2">ストーリープレイング</h4>
-                            <p class="text-sm text-gray-200 mb-2">90分</p>
-                            <p class="text-sm text-gray-300 max-w-sm leading-relaxed text-left">
+                            <p class="text-sm md:text-base text-gray-200 mb-2">90分</p>
+                            <p class="text-sm md:text-base text-gray-300 max-w-sm leading-relaxed text-left">
                                 ストーリープレイングは、物語の登場人物として会話や選択をしながらシナリオを体験する遊びです。《ソクラテスの祝福》の物語の登場人物として世界をお楽しみください。</p>
                         </div>
 
@@ -214,8 +214,8 @@
                                      style="filter: sepia(0.85) saturate(2.2) hue-rotate(20deg) brightness(2) contrast(1.05);">
                             </div>
                             <h4 class="font-bold text-lg md:text-xl text-center mb-2">周遊型謎解き</h4>
-                            <p class="text-sm text-gray-200 mb-2">60分〜90分</p>
-                            <p class="text-sm text-gray-300 max-w-sm leading-relaxed text-left">
+                            <p class="text-sm md:text-base text-gray-200 mb-2">60分～90分</p>
+                            <p class="text-sm md:text-base text-gray-300 max-w-sm leading-relaxed text-left">
                                 周遊型謎解きは、街や施設を実際に巡りながら、各地に設置されたヒントや手がかりを集めて謎を解く体験型の遊びです。実際に渋谷の街を散策しながら謎を解いていきます。</p>
                         </div>
 
@@ -227,8 +227,8 @@
                                      style="filter: sepia(0.85) saturate(2.2) hue-rotate(20deg) brightness(2) contrast(1.05);">
                             </div>
                             <h4 class="font-bold text-lg md:text-xl text-center mb-2">持ち帰り推理</h4>
-                            <p class="text-sm text-gray-200 mb-2">30分〜60分</p>
-                            <p class="text-sm text-gray-300 max-w-sm leading-relaxed text-left">
+                            <p class="text-sm md:text-base text-gray-200 mb-2">30分～60分</p>
+                            <p class="text-sm md:text-base text-gray-300 max-w-sm leading-relaxed text-left">
                                 持ち帰り推理は、キットを入手し落ち着いた環境でじっくり推理を楽しむコンテンツです。制限時間や場所に縛られず、好きなときにミステリに挑戦できるのが特徴です。</p>
                         </div>
 
@@ -240,8 +240,8 @@
                                      style="filter: sepia(0.85) saturate(2.2) hue-rotate(20deg) brightness(2) contrast(1.05);">
                             </div>
                             <h4 class="font-bold text-lg md:text-xl text-center mb-2">結末編演劇</h4>
-                            <p class="text-sm text-gray-200 mb-2">40分</p>
-                            <p class="text-sm text-gray-300 max-w-sm leading-relaxed text-left">
+                            <p class="text-sm md:text-base text-gray-200 mb-2">40分</p>
+                            <p class="text-sm md:text-base text-gray-300 max-w-sm leading-relaxed text-left">
                                 結末編演劇では、様々な要素を含んだ《ソクラテスの祝福》という物語がどのような結末を辿るのか、目の前で繰り広げられる結婚式を見届けていただきます。</p>
                         </div>
                     </div>
@@ -250,10 +250,10 @@
                     <!-- ▼ 編集：参加に必要なものを編集してください ▼ -->
                     <div class="bg-gray-800 p-6 md:p-8 rounded-lg text-left">
                         <h4 class="text-xl font-bold text-center mb-4 text-yellow-400">ご参加にあたり必要なもの</h4>
-                        <ul class="list-disc list-inside space-y-2">
+                        <ul class="list-disc list-inside space-y-2 text-sm md:text-base">
                             <li>スマートフォンやタブレットなど、インターネットに接続された端末</li>
-                            <li class="text-sm text-gray-400">端末のOSとブラウザは予め最新版へのアップデートをお願いいたします。</li>
-                            <li class="text-sm text-gray-400">インターネットの通信費はお客様のご負担となりますので、ご了承ください。</li>
+                            <li class="text-xs md:text-sm text-gray-400">端末のOSとブラウザは予め最新版へのアップデートをお願いいたします。</li>
+                            <li class="text-xs md:text-sm text-gray-400">インターネットの通信費はお客様のご負担となりますので、ご了承ください。</li>
                             <li>LINEアプリ（事前にインストール・動作確認をお願いいたします。）</li>
                             <li>イヤホン（動画を視聴する場面がございます）</li>
                         </ul>
@@ -271,7 +271,7 @@
                                 class="absolute -top-4 -left-4 w-10 h-10 bg-yellow-400 text-gray-900 font-bold text-xl flex items-center justify-center rounded-full">
                                 1</div>
                             <h4 class="font-bold text-lg mt-4 mb-2">チケットを手に入れよう！</h4>
-                            <p class="text-sm text-gray-300">会場と参加日時をチェックして、チケットを購入しましょう！</p>
+                            <p class="text-sm md:text-base text-gray-300">会場と参加日時をチェックして、チケットを購入しましょう！</p>
                         </div>
                         <!-- Step 2 -->
                         <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 relative">
@@ -279,7 +279,7 @@
                                 class="absolute -top-4 -left-4 w-10 h-10 bg-yellow-400 text-gray-900 font-bold text-xl flex items-center justify-center rounded-full">
                                 2</div>
                             <h4 class="font-bold text-lg mt-4 mb-2">開演5分前には会場へ！</h4>
-                            <p class="text-sm text-gray-300">電子チケットに記載された日時に合わせて、会場に向かいましょう！</p>
+                            <p class="text-sm md:text-base text-gray-300">電子チケットに記載された日時に合わせて、会場に向かいましょう！</p>
                         </div>
                         <!-- Step 3 -->
                         <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 relative">
@@ -287,7 +287,7 @@
                                 class="absolute -top-4 -left-4 w-10 h-10 bg-yellow-400 text-gray-900 font-bold text-xl flex items-center justify-center rounded-full">
                                 3</div>
                             <h4 class="font-bold text-lg mt-4 mb-2">ストーリープレイングがスタート！</h4>
-                            <p class="text-sm text-gray-300">個性豊かな登場人物をあなた自身が演じ、目の前で物語が展開していきます。</p>
+                            <p class="text-sm md:text-base text-gray-300">個性豊かな登場人物をあなた自身が演じ、目の前で物語が展開していきます。</p>
                         </div>
                         <!-- Step 4 -->
                         <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 relative">
@@ -295,7 +295,7 @@
                                 class="absolute -top-4 -left-4 w-10 h-10 bg-yellow-400 text-gray-900 font-bold text-xl flex items-center justify-center rounded-full">
                                 4</div>
                             <h4 class="font-bold text-lg mt-4 mb-2">周遊型謎解きを開始！</h4>
-                            <p class="text-sm text-gray-300">会場で受け取ったキットを使って渋谷の街を散策。物語の謎を解き明かしましょう！</p>
+                            <p class="text-sm md:text-base text-gray-300">会場で受け取ったキットを使って渋谷の街を散策。物語の謎を解き明かしましょう！</p>
                         </div>
                         <!-- Step 5 -->
                         <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 relative">
@@ -303,7 +303,7 @@
                                 class="absolute -top-4 -left-4 w-10 h-10 bg-yellow-400 text-gray-900 font-bold text-xl flex items-center justify-center rounded-full">
                                 5</div>
                             <h4 class="font-bold text-lg mt-4 mb-2">持ち帰り推理を解く！</h4>
-                            <p class="text-sm text-gray-300">警察からの依頼で、巷をざわめかせている怪盗を捕まえます！</p>
+                            <p class="text-sm md:text-base text-gray-300">警察からの依頼で、謎をめぐらせている怪盗を捕まえます！</p>
                         </div>
                         <!-- Step 6 -->
                         <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 relative">
@@ -311,7 +311,7 @@
                                 class="absolute -top-4 -left-4 w-10 h-10 bg-yellow-400 text-gray-900 font-bold text-xl flex items-center justify-center rounded-full">
                                 6</div>
                             <h4 class="font-bold text-lg mt-4 mb-2">考察タイム</h4>
-                            <p class="text-sm text-gray-300">これまで体験したコンテンツから、物語を考察してみましょう！</p>
+                            <p class="text-sm md:text-base text-gray-300">これまで体験したコンテンツから、物語を考察してみましょう！</p>
                         </div>
                         <!-- Step 7 -->
                         <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 relative">
@@ -319,7 +319,7 @@
                                 class="absolute -top-4 -left-4 w-10 h-10 bg-yellow-400 text-gray-900 font-bold text-xl flex items-center justify-center rounded-full">
                                 7</div>
                             <h4 class="font-bold text-lg mt-4 mb-2">結末編演劇（結婚式）を見よう！</h4>
-                            <p class="text-sm text-gray-300">ふたりの結婚式を見届けましょう！一体なにが起こるやら……？</p>
+                            <p class="text-sm md:text-base text-gray-300">ふたりの結婚式を見届けましょう！一体なにが起こるやら……？</p>
                         </div>
                     </div>
                 </div>
@@ -343,11 +343,11 @@
 
             <!-- ▼ 注意事項セクション（新規追加）▼ -->
             <section id="notes" class="flex flex-col items-center fade-in-on-scroll">
-                <div class="mt-12 w-full max-w-2xl bg-gray-800 p-6 md:p-8 rounded-lg">
+                <div class="mt-12 w-full max-w-4xl bg-gray-800 p-6 md:p-8 rounded-lg">
                     <details class="text-left group">
                         <summary class="font-bold text-xl md:text-2xl text-yellow-400 py-2">注意事項</summary>
                         <div class="mt-4 p-4 border-l-4 border-yellow-400 bg-gray-900/50">
-                            <ul class="list-disc list-inside space-y-2">
+                            <ul class="list-disc list-inside space-y-2 text-sm md:text-base">
                                 <li>公演の演出上、大きな音や光が使用される場合がございます。</li>
                                 <li>写真・動画撮影、録音はご遠慮いただいております。</li>
                                 <li>スマートフォンやイヤホンのご持参を推奨しております。</li>
@@ -399,37 +399,37 @@
             <!-- ▼ 公演概要セクション ▼ -->
             <section id="information" class="flex flex-col items-center fade-in-on-scroll">
                 <h2 class="section-title">INFORMATION</h2>
-                <div class="mt-12 w-full max-w-2xl bg-gray-800 p-6 md:p-8 rounded-lg">
+                <div class="mt-12 w-full max-w-4xl bg-gray-800 p-6 md:p-8 rounded-lg">
                     <dl class="divide-y divide-gray-700">
                         <!-- ▼ 編集：公演概要の各項目を編集してください ▼ -->
                         <div class="py-4 grid grid-cols-3 gap-4">
-                            <dt class="font-bold text-yellow-400">公演名</dt>
-                            <dd class="col-span-2">ソクラテスの祝福</dd>
+                            <dt class="font-bold text-yellow-400 text-sm md:text-base">公演名</dt>
+                            <dd class="col-span-2 text-sm md:text-base">ソクラテスの祝福</dd>
                         </div>
                         <div class="py-4 grid grid-cols-3 gap-4">
-                            <dt class="font-bold text-yellow-400">日程</dt>
-                            <dd class="col-span-2">2025年10月18日(土)〜10月19日(日)</dd>
+                            <dt class="font-bold text-yellow-400 text-sm md:text-base">日程</dt>
+                            <dd class="col-span-2 text-sm md:text-base">2025年10月18日(土)～10月19日(日)</dd>
                         </div>
                         <div class="py-4 grid grid-cols-3 gap-4">
-                            <dt class="font-bold text-yellow-400">会場</dt>
-                            <dd class="col-span-2">東京都渋谷区道玄坂付近<br>（<a href="#"
+                            <dt class="font-bold text-yellow-400 text-sm md:text-base">会場</dt>
+                            <dd class="col-span-2 text-sm md:text-base">東京都渋谷区道玄坂付近<br>（<a href="#"
                                     class="underline hover:text-yellow-300">Google Map</a>）</dd>
                         </div>
                         <div class="py-4 grid grid-cols-3 gap-4">
-                            <dt class="font-bold text-yellow-400">チケット料金</dt>
-                            <dd class="col-span-2">8,000円<br>(税込)</dd>
+                            <dt class="font-bold text-yellow-400 text-sm md:text-base">チケット料金</dt>
+                            <dd class="col-span-2 text-sm md:text-base">8,000円<br>(税込)</dd>
                         </div>
                         <div class="py-4 grid grid-cols-3 gap-4">
-                            <dt class="font-bold text-yellow-400">チケット発売</dt>
-                            <dd class="col-span-2">2025年6月28日(土) 12:00〜</dd>
+                            <dt class="font-bold text-yellow-400 text-sm md:text-base">チケット発売</dt>
+                            <dd class="col-span-2 text-sm md:text-base">2025年6月28日(土) 12:00～</dd>
                         </div>
                         <div class="py-4 grid grid-cols-3 gap-4">
-                            <dt class="font-bold text-yellow-400">企画・製作・運営</dt>
-                            <dd class="col-span-2">ソクラテスの証明</dd>
+                            <dt class="font-bold text-yellow-400 text-sm md:text-base">企画・制作・運営</dt>
+                            <dd class="col-span-2 text-sm md:text-base">ソクラテスの証明</dd>
                         </div>
                         <div class="py-4 grid grid-cols-3 gap-4">
-                            <dt class="font-bold text-yellow-400">お問い合わせ</dt>
-                            <dd class="col-span-2">p.of.socrates@gmail.com</dd>
+                            <dt class="font-bold text-yellow-400 text-sm md:text-base">お問い合わせ</dt>
+                            <dd class="col-span-2 text-sm md:text-base">p.of.socrates@gmail.com</dd>
                         </div>
                         <!-- ▲ 編集：公演概要の各項目を編集してください ▲ -->
                     </dl>
@@ -515,20 +515,20 @@
             const rawUrl = 'https://gist.githubusercontent.com/massy-o/25cb71f6d965c93c4579fb01cf10bf7d/raw';
             const venues = ['会場A', '会場B', '会場C', '会場D', '会場E'];
             const times = [
-                { key: '10:00', label: '10:00〜11:30' },
-                { key: '11:40', label: '11:40〜13:10' },
-                { key: '13:30', label: '13:30〜15:00' },
-                { key: '15:10', label: '15:10〜16:40' },
-                { key: '16:50', label: '16:50〜18:10' }
+                { key: '10:00', label: '10:00～11:30' },
+                { key: '11:40', label: '11:40～13:10' },
+                { key: '13:30', label: '13:30～15:00' },
+                { key: '15:10', label: '15:10～16:40' },
+                { key: '16:50', label: '16:50～18:10' }
             ];
             const dates = ['10/18', '10/19'];
 
             const weddingTimes = [
-                { key: '14:40', label: '14:40〜15:20' },
-                { key: '15:40', label: '15:40〜16:20' },
-                { key: '16:40', label: '16:40〜17:20' },
-                { key: '17:40', label: '17:40〜18:20' },
-                { key: '18:40', label: '18:40〜19:20' }
+                { key: '14:40', label: '14:40～15:20' },
+                { key: '15:40', label: '15:40～16:20' },
+                { key: '16:40', label: '16:40～17:20' },
+                { key: '17:40', label: '17:40～18:20' },
+                { key: '18:40', label: '18:40～19:20' }
             ];
 
             function makeTableFor(date, data) {
