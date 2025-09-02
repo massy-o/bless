@@ -353,6 +353,14 @@
               </tbody>
             </table>
           </div>
+          <p class="text-xs sm:text-sm text-center text-gray-400 mt-2 sm:mt-3">※15:10回ストプレ参加者は入退場の都合上、16:40回の結末編演劇をご覧になれません。</p>
+          <!-- ▼ 編集：チケット販売ページのURLをhref=""に設定してください ▼ -->
+          <div class="text-center mt-8">
+            <a href="https://passmarket.yahoo.co.jp/event/show/detail/029t4dz5fzh41.html"
+              class="inline-block bg-yellow-400 text-gray-900 font-bold px-8 py-3 rounded-full hover:bg-yellow-300 transition-colors duration-300 text-lg">
+              チケットはこちら
+            </a>
+          </div>
         </div>
       </section>
 
@@ -733,29 +741,29 @@
 
             // セルの内容を設定
             if (col === 5) { // 結婚式会場
-              if (hourIndex >= 4 && hourIndex <= 8) { // 14:00-18:00
-                if (i === 0) {
-                  // 開始終了時間を表示
-                  cell.innerHTML = `<span class="text-[10px] sm:text-xs md:text-sm font-bold">${weddingTimes[hourIndex] || ''}</span>`;
-                  cell.className += ' bg-fuchsia-300/80 text-gray-900';
-                } else if (i === 1) {
-                  // Gistから残席数を取得
-                  let seats = 0;
-                  const weddingKey = weddingKeys[hourIndex];
-                  if (weddingKey && window.gistData && window.gistData.weddingTickets) {
-                    const key = `${window.__ttActiveDate || '10/18'} ${weddingKey}`;
-                    if (window.gistData.weddingTickets[key] !== undefined) {
-                      seats = Number(window.gistData.weddingTickets[key]);
-                    }
-                  }
+              // Time range display (shifted down by 2 cells)
+              if (hourIndex >= 4 && hourIndex <= 8 && i === 2) {
+                cell.innerHTML = `<span class="text-[10px] sm:text-xs md:text-sm font-bold">${weddingTimes[hourIndex] || ''}</span>`;
+                cell.className += ' bg-fuchsia-300/80 text-gray-900';
+              }
 
-                  if (seats === 0) {
-                    cell.className += ' bg-gray-700 text-gray-400';
-                  } else {
-                    cell.className += ' bg-fuchsia-200/80 text-gray-900';
+              // Seat count display (shifted down by 2 cells)
+              const prevHourIndex = hourIndex - 1;
+              if (prevHourIndex >= 4 && prevHourIndex <= 8 && i === 0) {
+                let seats = 0;
+                const weddingKey = weddingKeys[prevHourIndex];
+                if (weddingKey && window.gistData && window.gistData.weddingTickets) {
+                  const key = `${window.__ttActiveDate || '10/18'} ${weddingKey}`;
+                  if (window.gistData.weddingTickets[key] !== undefined) {
+                    seats = Number(window.gistData.weddingTickets[key]);
                   }
-                  cell.innerHTML = `<span class="text-[10px] sm:text-xs md:text-sm font-bold">残り${seats}席</span>`;
                 }
+                if (seats === 0) {
+                  cell.className += ' bg-gray-700 text-gray-400';
+                } else {
+                  cell.className += ' bg-fuchsia-200/80 text-gray-900';
+                }
+                cell.innerHTML = `<span class="text-[10px] sm:text-xs md:text-sm font-bold">残り${seats}席</span>`;
               }
             } else if (col < 5) { // 会議室A-E
               const venueColor = venueColors[col];
